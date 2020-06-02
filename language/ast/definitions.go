@@ -148,41 +148,231 @@ func (vd *VariableDefinition) GetLoc() *Location {
 	return vd.Loc
 }
 
-// TypeExtensionDefinition implements Node, Definition
-type TypeExtensionDefinition struct {
+// ScalarExtensionDefinition implements Node, Definition
+type ScalarExtensionDefinition struct {
 	Kind       string
 	Loc        *Location
-	Definition *ObjectDefinition
+	Definition *ScalarDefinition
 }
 
-func NewTypeExtensionDefinition(def *TypeExtensionDefinition) *TypeExtensionDefinition {
+func NewScalarExtensionDefinition(def *ScalarExtensionDefinition) *ScalarExtensionDefinition {
 	if def == nil {
-		def = &TypeExtensionDefinition{}
+		def = &ScalarExtensionDefinition{}
 	}
-	return &TypeExtensionDefinition{
-		Kind:       kinds.TypeExtensionDefinition,
+	return &ScalarExtensionDefinition{
+		Kind:       kinds.ScalarExtensionDefinition,
 		Loc:        def.Loc,
 		Definition: def.Definition,
 	}
 }
 
-func (def *TypeExtensionDefinition) GetKind() string {
+func (def *ScalarExtensionDefinition) GetKind() string {
 	return def.Kind
 }
 
-func (def *TypeExtensionDefinition) GetLoc() *Location {
+func (def *ScalarExtensionDefinition) GetLoc() *Location {
 	return def.Loc
 }
 
-func (def *TypeExtensionDefinition) GetVariableDefinitions() []*VariableDefinition {
+func (def *ScalarExtensionDefinition) GetVariableDefinitions() []*VariableDefinition {
 	return []*VariableDefinition{}
 }
 
-func (def *TypeExtensionDefinition) GetSelectionSet() *SelectionSet {
+func (def *ScalarExtensionDefinition) GetSelectionSet() *SelectionSet {
 	return &SelectionSet{}
 }
 
-func (def *TypeExtensionDefinition) GetOperation() string {
+func (def *ScalarExtensionDefinition) GetOperation() string {
+	return ""
+}
+
+// ObjectExtensionDefinition implements Node, Definition
+type ObjectExtensionDefinition struct {
+	Kind       string
+	Loc        *Location
+	Definition *ObjectDefinition
+}
+
+func NewObjectExtensionDefinition(def *ObjectExtensionDefinition) *ObjectExtensionDefinition {
+	if def == nil {
+		def = &ObjectExtensionDefinition{}
+	}
+	return &ObjectExtensionDefinition{
+		Kind:       kinds.ObjectExtensionDefinition,
+		Loc:        def.Loc,
+		Definition: def.Definition,
+	}
+}
+
+func (def *ObjectExtensionDefinition) GetKind() string {
+	return def.Kind
+}
+
+func (def *ObjectExtensionDefinition) GetLoc() *Location {
+	return def.Loc
+}
+
+func (def *ObjectExtensionDefinition) GetVariableDefinitions() []*VariableDefinition {
+	return []*VariableDefinition{}
+}
+
+func (def *ObjectExtensionDefinition) GetSelectionSet() *SelectionSet {
+	return &SelectionSet{}
+}
+
+func (def *ObjectExtensionDefinition) GetOperation() string {
+	return ""
+}
+
+// InterfaceExtensionDefinition implements Node, Definition
+type InterfaceExtensionDefinition struct {
+	Kind       string
+	Loc        *Location
+	Definition *InterfaceDefinition
+}
+
+func NewInterfaceExtensionDefinition(def *InterfaceExtensionDefinition) *InterfaceExtensionDefinition {
+	if def == nil {
+		def = &InterfaceExtensionDefinition{}
+	}
+	return &InterfaceExtensionDefinition{
+		Kind:       kinds.InterfaceExtensionDefinition,
+		Loc:        def.Loc,
+		Definition: def.Definition,
+	}
+}
+
+func (def *InterfaceExtensionDefinition) GetKind() string {
+	return def.Kind
+}
+
+func (def *InterfaceExtensionDefinition) GetLoc() *Location {
+	return def.Loc
+}
+
+func (def *InterfaceExtensionDefinition) GetVariableDefinitions() []*VariableDefinition {
+	return []*VariableDefinition{}
+}
+
+func (def *InterfaceExtensionDefinition) GetSelectionSet() *SelectionSet {
+	return &SelectionSet{}
+}
+
+func (def *InterfaceExtensionDefinition) GetOperation() string {
+	return ""
+}
+
+// UnionExtensionDefinition implements Node, Definition
+type UnionExtensionDefinition struct {
+	Kind       string
+	Loc        *Location
+	Definition *UnionDefinition
+}
+
+func NewUnionExtensionDefinition(def *UnionExtensionDefinition) *UnionExtensionDefinition {
+	if def == nil {
+		def = &UnionExtensionDefinition{}
+	}
+	return &UnionExtensionDefinition{
+		Kind:       kinds.UnionExtensionDefinition,
+		Loc:        def.Loc,
+		Definition: def.Definition,
+	}
+}
+
+func (def *UnionExtensionDefinition) GetKind() string {
+	return def.Kind
+}
+
+func (def *UnionExtensionDefinition) GetLoc() *Location {
+	return def.Loc
+}
+
+func (def *UnionExtensionDefinition) GetVariableDefinitions() []*VariableDefinition {
+	return []*VariableDefinition{}
+}
+
+func (def *UnionExtensionDefinition) GetSelectionSet() *SelectionSet {
+	return &SelectionSet{}
+}
+
+func (def *UnionExtensionDefinition) GetOperation() string {
+	return ""
+}
+
+// EnumExtensionDefinition implements Node, Definition
+type EnumExtensionDefinition struct {
+	Kind       string
+	Loc        *Location
+	Definition *EnumDefinition
+}
+
+func NewEnumExtensionDefinition(def *EnumExtensionDefinition) *EnumExtensionDefinition {
+	if def == nil {
+		def = &EnumExtensionDefinition{}
+	}
+	return &EnumExtensionDefinition{
+		Kind:       kinds.EnumExtensionDefinition,
+		Loc:        def.Loc,
+		Definition: def.Definition,
+	}
+}
+
+func (def *EnumExtensionDefinition) GetKind() string {
+	return def.Kind
+}
+
+func (def *EnumExtensionDefinition) GetLoc() *Location {
+	return def.Loc
+}
+
+func (def *EnumExtensionDefinition) GetVariableDefinitions() []*VariableDefinition {
+	return []*VariableDefinition{}
+}
+
+func (def *EnumExtensionDefinition) GetSelectionSet() *SelectionSet {
+	return &SelectionSet{}
+}
+
+func (def *EnumExtensionDefinition) GetOperation() string {
+	return ""
+}
+
+// InputObjectExtensionDefinition implements Node, Definition
+type InputObjectExtensionDefinition struct {
+	Kind       string
+	Loc        *Location
+	Definition *InputObjectDefinition
+}
+
+func NewInputObjectExtensionDefinition(def *InputObjectExtensionDefinition) *InputObjectExtensionDefinition {
+	if def == nil {
+		def = &InputObjectExtensionDefinition{}
+	}
+	return &InputObjectExtensionDefinition{
+		Kind:       kinds.InputObjectExtensionDefinition,
+		Loc:        def.Loc,
+		Definition: def.Definition,
+	}
+}
+
+func (def *InputObjectExtensionDefinition) GetKind() string {
+	return def.Kind
+}
+
+func (def *InputObjectExtensionDefinition) GetLoc() *Location {
+	return def.Loc
+}
+
+func (def *InputObjectExtensionDefinition) GetVariableDefinitions() []*VariableDefinition {
+	return []*VariableDefinition{}
+}
+
+func (def *InputObjectExtensionDefinition) GetSelectionSet() *SelectionSet {
+	return &SelectionSet{}
+}
+
+func (def *InputObjectExtensionDefinition) GetOperation() string {
 	return ""
 }
 
