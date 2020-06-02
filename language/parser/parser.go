@@ -1211,13 +1211,16 @@ func parseUnionTypeDefinition(parser *Parser) (ast.Node, error) {
 	if err != nil {
 		return nil, err
 	}
-	_, err = expect(parser, lexer.EQUALS)
-	if err != nil {
-		return nil, err
-	}
-	types, err := parseUnionMembers(parser)
-	if err != nil {
-		return nil, err
+	var types []*ast.Named
+	if parser.Token.Kind == lexer.EQUALS {
+		_, err = expect(parser, lexer.EQUALS)
+		if err != nil {
+			return nil, err
+		}
+		types, err = parseUnionMembers(parser)
+		if err != nil {
+			return nil, err
+		}
 	}
 	return ast.NewUnionDefinition(&ast.UnionDefinition{
 		Name:        name,
