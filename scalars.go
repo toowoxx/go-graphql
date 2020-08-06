@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/graphql-go/graphql/language/ast"
+	"git.toowoxx.de/foss/go/go-graphql/language/ast"
 )
 
 func unwrapInt(value interface{}) (interface{}, bool) {

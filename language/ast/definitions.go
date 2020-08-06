@@ -1,7 +1,7 @@
 package ast
 
 import (
-	"github.com/graphql-go/graphql/language/kinds"
+	"git.toowoxx.de/foss/go/go-graphql/language/kinds"
 )
 
 type Definition interface {

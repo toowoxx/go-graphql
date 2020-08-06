@@ -1,1 +1,3 @@
-module github.com/graphql-go/graphql
+module git.toowoxx.de/foss/go/go-graphql
+
+go 1.14
