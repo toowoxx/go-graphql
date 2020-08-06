@@ -27,6 +27,16 @@ func unwrapInt(value interface{}) (interface{}, bool) {
 		return int32(r.Int()), true
 	case reflect.Int64:
 		return r.Int(), true
+	case reflect.Uint:
+		return uint(r.Uint()), true
+	case reflect.Uint8:
+		return uint(r.Uint()), true
+	case reflect.Uint16:
+		return uint(r.Uint()), true
+	case reflect.Uint32:
+		return uint(r.Uint()), true
+	case reflect.Uint64:
+		return uint(r.Uint()), true
 	default:
 		return nil, false
 	}
