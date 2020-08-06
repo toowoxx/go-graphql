@@ -34,8 +34,14 @@ type TypeSystemDefinition interface {
 }
 
 var _ TypeSystemDefinition = (*SchemaDefinition)(nil)
+var _ TypeSystemDefinition = (*SchemaExtensionDefinition)(nil)
 var _ TypeSystemDefinition = (TypeDefinition)(nil)
-var _ TypeSystemDefinition = (*TypeExtensionDefinition)(nil)
+var _ TypeSystemDefinition = (*ScalarExtensionDefinition)(nil)
+var _ TypeSystemDefinition = (*ObjectExtensionDefinition)(nil)
+var _ TypeSystemDefinition = (*InterfaceExtensionDefinition)(nil)
+var _ TypeSystemDefinition = (*UnionExtensionDefinition)(nil)
+var _ TypeSystemDefinition = (*EnumExtensionDefinition)(nil)
+var _ TypeSystemDefinition = (*InputObjectExtensionDefinition)(nil)
 var _ TypeSystemDefinition = (*DirectiveDefinition)(nil)
 
 // SchemaDefinition implements Node, Definition
@@ -75,6 +81,45 @@ func (def *SchemaDefinition) GetSelectionSet() *SelectionSet {
 }
 
 func (def *SchemaDefinition) GetOperation() string {
+	return ""
+}
+
+// SchemaExtensionDefinition implements Node, Definition
+type SchemaExtensionDefinition struct {
+	Kind       string
+	Loc        *Location
+	Definition *SchemaDefinition
+}
+
+func NewSchemaExtensionDefinition(def *SchemaDefinition) *SchemaDefinition {
+	if def == nil {
+		def = &SchemaDefinition{}
+	}
+	return &SchemaDefinition{
+		Kind:           kinds.SchemaDefinition,
+		Loc:            def.Loc,
+		Directives:     def.Directives,
+		OperationTypes: def.OperationTypes,
+	}
+}
+
+func (def *SchemaExtensionDefinition) GetKind() string {
+	return def.Kind
+}
+
+func (def *SchemaExtensionDefinition) GetLoc() *Location {
+	return def.Loc
+}
+
+func (def *SchemaExtensionDefinition) GetVariableDefinitions() []*VariableDefinition {
+	return []*VariableDefinition{}
+}
+
+func (def *SchemaExtensionDefinition) GetSelectionSet() *SelectionSet {
+	return &SelectionSet{}
+}
+
+func (def *SchemaExtensionDefinition) GetOperation() string {
 	return ""
 }
 

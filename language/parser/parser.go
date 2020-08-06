@@ -36,7 +36,7 @@ func init() {
 		tokenDefinitionFn[lexer.UNION] = parseUnionTypeDefinition
 		tokenDefinitionFn[lexer.ENUM] = parseEnumTypeDefinition
 		tokenDefinitionFn[lexer.INPUT] = parseInputObjectTypeDefinition
-		tokenDefinitionFn[lexer.EXTEND] = parseTypeExtensionDefinition
+		tokenDefinitionFn[lexer.EXTEND] = parseSystemExtensionDefinition
 		tokenDefinitionFn[lexer.DIRECTIVE] = parseDirectiveDefinition
 	}
 }
@@ -1211,13 +1211,16 @@ func parseUnionTypeDefinition(parser *Parser) (ast.Node, error) {
 	if err != nil {
 		return nil, err
 	}
-	_, err = expect(parser, lexer.EQUALS)
-	if err != nil {
-		return nil, err
-	}
-	types, err := parseUnionMembers(parser)
-	if err != nil {
-		return nil, err
+	var types []*ast.Named
+	if parser.Token.Kind == lexer.EQUALS {
+		_, err = expect(parser, lexer.EQUALS)
+		if err != nil {
+			return nil, err
+		}
+		types, err = parseUnionMembers(parser)
+		if err != nil {
+			return nil, err
+		}
 	}
 	return ast.NewUnionDefinition(&ast.UnionDefinition{
 		Name:        name,
@@ -1365,23 +1368,66 @@ func parseInputObjectTypeDefinition(parser *Parser) (ast.Node, error) {
 }
 
 /**
- * TypeExtensionDefinition : extend ObjectTypeDefinition
+ * TypeSystemExtension :
+ * 		SchemaExtension
+ *		TypeExtension
  */
-func parseTypeExtensionDefinition(parser *Parser) (ast.Node, error) {
+func parseSystemExtensionDefinition(parser *Parser) (ast.Node, error) {
 	start := parser.Token.Start
 	_, err := expectKeyWord(parser, lexer.EXTEND)
 	if err != nil {
 		return nil, err
 	}
-
-	definition, err := parseObjectTypeDefinition(parser)
-	if err != nil {
-		return nil, err
+	var node ast.Node
+	if parser.Token.Kind == lexer.NAME {
+		switch parser.Token.Value {
+		case lexer.SCALAR, lexer.TYPE, lexer.INTERFACE, lexer.UNION, lexer.ENUM, lexer.INPUT, lexer.SCHEMA:
+			node, err = parseTypeSystemDefinition(parser)
+		}
 	}
-	return ast.NewTypeExtensionDefinition(&ast.TypeExtensionDefinition{
-		Loc:        loc(parser, start),
-		Definition: definition.(*ast.ObjectDefinition),
-	}), nil
+	if node == nil && err == nil {
+		err = unexpected(parser, lexer.Token{})
+	}
+	if err == nil {
+		switch n := node.(type) {
+		case *ast.ScalarDefinition:
+			node = &ast.ScalarExtensionDefinition{
+				Loc:        loc(parser, start),
+				Definition: n,
+			}
+		case *ast.ObjectDefinition:
+			node = &ast.ObjectExtensionDefinition{
+				Loc:        loc(parser, start),
+				Definition: n,
+			}
+		case *ast.InterfaceDefinition:
+			node = &ast.InterfaceExtensionDefinition{
+				Loc:        loc(parser, start),
+				Definition: n,
+			}
+		case *ast.UnionDefinition:
+			node = &ast.UnionExtensionDefinition{
+				Loc:        loc(parser, start),
+				Definition: n,
+			}
+		case *ast.EnumDefinition:
+			node = &ast.EnumExtensionDefinition{
+				Loc:        loc(parser, start),
+				Definition: n,
+			}
+		case *ast.InputObjectDefinition:
+			node = &ast.InputObjectExtensionDefinition{
+				Loc:        loc(parser, start),
+				Definition: n,
+			}
+		case *ast.SchemaDefinition:
+			node = &ast.SchemaExtensionDefinition{
+				Loc:        loc(parser, start),
+				Definition: n,
+			}
+		}
+	}
+	return node, err
 }
 
 /**

@@ -52,7 +52,12 @@ const (
 	InputObjectDefinition = "InputObjectDefinition" // previously InputObjectTypeDefinition
 
 	// Types Extensions
-	TypeExtensionDefinition = "TypeExtensionDefinition"
+	ScalarExtensionDefinition      = "ScalarExtensionDefinition"
+	ObjectExtensionDefinition      = "ObjectExtensionDefinition"
+	InterfaceExtensionDefinition   = "InterfaceExtensionDefinition"
+	UnionExtensionDefinition       = "UnionExtensionDefinition"
+	EnumExtensionDefinition        = "EnumExtensionDefinition"
+	InputObjectExtensionDefinition = "InputObjectExtensionDefinition"
 
 	// Directive Definitions
 	DirectiveDefinition = "DirectiveDefinition"

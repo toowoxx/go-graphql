@@ -876,9 +876,87 @@ var printDocASTReducer = map[string]visitor.VisitFunc{
 		}
 		return visitor.ActionNoChange, nil
 	},
-	"TypeExtensionDefinition": func(p visitor.VisitFuncParams) (string, interface{}) {
+	"ScalarExtensionDefinition": func(p visitor.VisitFuncParams) (string, interface{}) {
 		switch node := p.Node.(type) {
-		case *ast.TypeExtensionDefinition:
+		case *ast.ScalarExtensionDefinition:
+			definition := fmt.Sprintf("%v", node.Definition)
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		case map[string]interface{}:
+			definition := getMapValueString(node, "Definition")
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		}
+		return visitor.ActionNoChange, nil
+	},
+	"SchemaExtensionDefinition": func(p visitor.VisitFuncParams) (string, interface{}) {
+		switch node := p.Node.(type) {
+		case *ast.SchemaExtensionDefinition:
+			definition := fmt.Sprintf("%v", node.Definition)
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		case map[string]interface{}:
+			definition := getMapValueString(node, "Definition")
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		}
+		return visitor.ActionNoChange, nil
+	},
+	"ObjectExtensionDefinition": func(p visitor.VisitFuncParams) (string, interface{}) {
+		switch node := p.Node.(type) {
+		case *ast.ObjectExtensionDefinition:
+			definition := fmt.Sprintf("%v", node.Definition)
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		case map[string]interface{}:
+			definition := getMapValueString(node, "Definition")
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		}
+		return visitor.ActionNoChange, nil
+	},
+	"InterfaceExtensionDefinition": func(p visitor.VisitFuncParams) (string, interface{}) {
+		switch node := p.Node.(type) {
+		case *ast.InterfaceExtensionDefinition:
+			definition := fmt.Sprintf("%v", node.Definition)
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		case map[string]interface{}:
+			definition := getMapValueString(node, "Definition")
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		}
+		return visitor.ActionNoChange, nil
+	},
+	"UnionExtensionDefinition": func(p visitor.VisitFuncParams) (string, interface{}) {
+		switch node := p.Node.(type) {
+		case *ast.UnionExtensionDefinition:
+			definition := fmt.Sprintf("%v", node.Definition)
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		case map[string]interface{}:
+			definition := getMapValueString(node, "Definition")
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		}
+		return visitor.ActionNoChange, nil
+	},
+	"EnumExtensionDefinition": func(p visitor.VisitFuncParams) (string, interface{}) {
+		switch node := p.Node.(type) {
+		case *ast.EnumExtensionDefinition:
+			definition := fmt.Sprintf("%v", node.Definition)
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		case map[string]interface{}:
+			definition := getMapValueString(node, "Definition")
+			str := "extend " + definition
+			return visitor.ActionUpdate, str
+		}
+		return visitor.ActionNoChange, nil
+	},
+	"InputObjectExtensionDefinition": func(p visitor.VisitFuncParams) (string, interface{}) {
+		switch node := p.Node.(type) {
+		case *ast.InputObjectExtensionDefinition:
 			definition := fmt.Sprintf("%v", node.Definition)
 			str := "extend " + definition
 			return visitor.ActionUpdate, str
