@@ -95,7 +95,7 @@ func BindFields(obj interface{}) Fields {
 			structFields := BindFields(itf)
 
 			if tag == "" {
-				fields = appendFields(fields, BindFields(v.Field(i).Interface()))
+				fields = appendFields(fields, BindFields(structFields))
 				continue
 			} else {
 				graphType = BindType(fieldType)
