@@ -1,6 +1,7 @@
 package graphql
 
 import (
+	"encoding"
 	"fmt"
 	"reflect"
 	"strings"
@@ -85,6 +86,14 @@ func BindFields(obj interface{}) Fields {
 		if fieldType == timeType {
 			graphType = DateTime
 		} else if fieldType.Kind() == reflect.Struct {
+			itf := v.Field(i).Interface()
+			if _, ok := itf.(encoding.TextMarshaler); ok {
+				fieldType = reflect.TypeOf("")
+				goto nonStruct
+			}
+
+			structFields := BindFields(itf)
+
 			if tag == "" {
 				fields = appendFields(fields, BindFields(v.Field(i).Interface()))
 				continue
@@ -93,6 +102,7 @@ func BindFields(obj interface{}) Fields {
 			}
 		}
 
+	nonStruct:
 		if tag == "" {
 			continue
 		}
@@ -158,14 +168,22 @@ func extractValue(originTag string, obj interface{}) interface{} {
 
 	for j := 0; j < val.NumField(); j++ {
 		field := val.Type().Field(j)
+		found := originTag == extractTag(field.Tag)
 		if field.Type.Kind() == reflect.Struct {
-			res := extractValue(originTag, val.Field(j).Interface())
+			itf := val.Field(j).Interface()
+
+			if str, ok := itf.(encoding.TextMarshaler); ok && found {
+				byt, _ := str.MarshalText()
+				return string(byt)
+			}
+
+			res := extractValue(originTag, itf)
 			if res != nil {
 				return res
 			}
 		}
 
-		if originTag == extractTag(field.Tag) {
+		if found {
 			return reflect.Indirect(val.Field(j)).Interface()
 		}
 	}
