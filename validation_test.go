@@ -3,8 +3,8 @@ package graphql_test
 import (
 	"testing"
 
-	"git.toowoxx.de/foss/go/go-graphql"
-	"git.toowoxx.de/foss/go/go-graphql/language/ast"
+	"github.com/toowoxx/go-graphql"
+	"github.com/toowoxx/go-graphql/language/ast"
 )
 
 var someScalarType = graphql.NewScalar(graphql.ScalarConfig{

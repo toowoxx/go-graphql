@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log"
 
-	"git.toowoxx.de/foss/go/go-graphql"
+	"github.com/toowoxx/go-graphql"
 )
 
 type User struct {

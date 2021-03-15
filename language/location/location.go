@@ -3,7 +3,7 @@ package location
 import (
 	"regexp"
 
-	"git.toowoxx.de/foss/go/go-graphql/language/source"
+	"github.com/toowoxx/go-graphql/language/source"
 )
 
 type SourceLocation struct {

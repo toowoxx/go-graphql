@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"git.toowoxx.de/foss/go/go-graphql"
+	"github.com/toowoxx/go-graphql"
 )
 
 type HelloOutput struct {

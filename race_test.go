@@ -23,7 +23,7 @@ func TestRace(t *testing.T) {
 			"runtime"
 			"sync"
 
-			"git.toowoxx.de/foss/go/go-graphql"
+			"github.com/toowoxx/go-graphql"
 		)
 
 		func main() {

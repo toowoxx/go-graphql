@@ -3,7 +3,7 @@ package testutil_test
 import (
 	"testing"
 
-	"git.toowoxx.de/foss/go/go-graphql/testutil"
+	"github.com/toowoxx/go-graphql/testutil"
 )
 
 func TestSubsetSlice_Simple(t *testing.T) {

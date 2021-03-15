@@ -3,11 +3,11 @@ package testutil
 import (
 	"testing"
 
-	"git.toowoxx.de/foss/go/go-graphql"
-	"git.toowoxx.de/foss/go/go-graphql/gqlerrors"
-	"git.toowoxx.de/foss/go/go-graphql/language/location"
-	"git.toowoxx.de/foss/go/go-graphql/language/parser"
-	"git.toowoxx.de/foss/go/go-graphql/language/source"
+	"github.com/toowoxx/go-graphql"
+	"github.com/toowoxx/go-graphql/gqlerrors"
+	"github.com/toowoxx/go-graphql/language/location"
+	"github.com/toowoxx/go-graphql/language/parser"
+	"github.com/toowoxx/go-graphql/language/source"
 )
 
 var TestSchema *graphql.Schema

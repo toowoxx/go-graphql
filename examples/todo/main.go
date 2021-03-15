@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"git.toowoxx.de/foss/go/go-graphql"
-	"git.toowoxx.de/foss/go/go-graphql/examples/todo/schema"
+	"github.com/toowoxx/go-graphql"
+	"github.com/toowoxx/go-graphql/examples/todo/schema"
 )
 
 func init() {

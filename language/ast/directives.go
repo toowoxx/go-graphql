@@ -1,7 +1,7 @@
 package ast
 
 import (
-	"git.toowoxx.de/foss/go/go-graphql/language/kinds"
+	"github.com/toowoxx/go-graphql/language/kinds"
 )
 
 // Directive implements Node

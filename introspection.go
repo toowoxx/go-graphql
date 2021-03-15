@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"sort"
 
-	"git.toowoxx.de/foss/go/go-graphql/language/ast"
-	"git.toowoxx.de/foss/go/go-graphql/language/printer"
+	"github.com/toowoxx/go-graphql/language/ast"
+	"github.com/toowoxx/go-graphql/language/printer"
 )
 
 const (

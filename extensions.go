@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"git.toowoxx.de/foss/go/go-graphql/gqlerrors"
+	"github.com/toowoxx/go-graphql/gqlerrors"
 )
 
 type (

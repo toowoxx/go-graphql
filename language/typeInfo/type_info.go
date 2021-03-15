@@ -1,7 +1,7 @@
 package typeInfo
 
 import (
-	"git.toowoxx.de/foss/go/go-graphql/language/ast"
+	"github.com/toowoxx/go-graphql/language/ast"
 )
 
 // TypeInfoI defines the interface for TypeInfo Implementation

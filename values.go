@@ -8,10 +8,10 @@ import (
 	"sort"
 	"strings"
 
-	"git.toowoxx.de/foss/go/go-graphql/gqlerrors"
-	"git.toowoxx.de/foss/go/go-graphql/language/ast"
-	"git.toowoxx.de/foss/go/go-graphql/language/kinds"
-	"git.toowoxx.de/foss/go/go-graphql/language/printer"
+	"github.com/toowoxx/go-graphql/gqlerrors"
+	"github.com/toowoxx/go-graphql/language/ast"
+	"github.com/toowoxx/go-graphql/language/kinds"
+	"github.com/toowoxx/go-graphql/language/printer"
 )
 
 // Prepares an object map of variableValues of the correct type based on the

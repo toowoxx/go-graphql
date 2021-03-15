@@ -5,9 +5,9 @@ import (
 	"regexp"
 	"strings"
 
-	"git.toowoxx.de/foss/go/go-graphql/language/ast"
-	"git.toowoxx.de/foss/go/go-graphql/language/location"
-	"git.toowoxx.de/foss/go/go-graphql/language/source"
+	"github.com/toowoxx/go-graphql/language/ast"
+	"github.com/toowoxx/go-graphql/language/location"
+	"github.com/toowoxx/go-graphql/language/source"
 )
 
 func NewSyntaxError(s *source.Source, position int, description string) *Error {

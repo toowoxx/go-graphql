@@ -3,9 +3,9 @@ package graphql
 import (
 	"context"
 
-	"git.toowoxx.de/foss/go/go-graphql/gqlerrors"
-	"git.toowoxx.de/foss/go/go-graphql/language/parser"
-	"git.toowoxx.de/foss/go/go-graphql/language/source"
+	"github.com/toowoxx/go-graphql/gqlerrors"
+	"github.com/toowoxx/go-graphql/language/parser"
+	"github.com/toowoxx/go-graphql/language/source"
 )
 
 type Params struct {

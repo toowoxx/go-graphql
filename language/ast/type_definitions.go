@@ -1,7 +1,7 @@
 package ast
 
 import (
-	"git.toowoxx.de/foss/go/go-graphql/language/kinds"
+	"github.com/toowoxx/go-graphql/language/kinds"
 )
 
 // DescribableNode are nodes that have descriptions associated with them.

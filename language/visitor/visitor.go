@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"reflect"
 
-	"git.toowoxx.de/foss/go/go-graphql/language/ast"
-	"git.toowoxx.de/foss/go/go-graphql/language/typeInfo"
+	"github.com/toowoxx/go-graphql/language/ast"
+	"github.com/toowoxx/go-graphql/language/typeInfo"
 )
 
 const (

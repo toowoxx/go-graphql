@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	"git.toowoxx.de/foss/go/go-graphql/language/ast"
-	"git.toowoxx.de/foss/go/go-graphql/language/kinds"
-	"git.toowoxx.de/foss/go/go-graphql/language/printer"
-	"git.toowoxx.de/foss/go/go-graphql/language/visitor"
+	"github.com/toowoxx/go-graphql/language/ast"
+	"github.com/toowoxx/go-graphql/language/kinds"
+	"github.com/toowoxx/go-graphql/language/printer"
+	"github.com/toowoxx/go-graphql/language/visitor"
 )
 
 func fieldsConflictMessage(responseName string, reason conflictReason) string {

@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"git.toowoxx.de/foss/go/go-graphql"
+	"github.com/toowoxx/go-graphql"
 )
 
 // Product contains information about one product

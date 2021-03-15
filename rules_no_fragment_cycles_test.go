@@ -3,9 +3,9 @@ package graphql_test
 import (
 	"testing"
 
-	"git.toowoxx.de/foss/go/go-graphql"
-	"git.toowoxx.de/foss/go/go-graphql/gqlerrors"
-	"git.toowoxx.de/foss/go/go-graphql/testutil"
+	"github.com/toowoxx/go-graphql"
+	"github.com/toowoxx/go-graphql/gqlerrors"
+	"github.com/toowoxx/go-graphql/testutil"
 )
 
 func TestValidate_NoCircularFragmentSpreads_SingleReferenceIsValid(t *testing.T) {

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
-	"git.toowoxx.de/foss/go/go-graphql"
-	"git.toowoxx.de/foss/go/go-graphql/language/ast"
+	"github.com/toowoxx/go-graphql"
+	"github.com/toowoxx/go-graphql/language/ast"
 )
 
 type CustomID struct {

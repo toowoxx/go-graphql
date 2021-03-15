@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"git.toowoxx.de/foss/go/go-graphql"
-	"git.toowoxx.de/foss/go/go-graphql/testutil"
+	"github.com/toowoxx/go-graphql"
+	"github.com/toowoxx/go-graphql/testutil"
 )
 
 // TODO: have a separate package for other tests for eg `parser`
