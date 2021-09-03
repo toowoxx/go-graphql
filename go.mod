@@ -1,3 +1,3 @@
 module github.com/toowoxx/go-graphql
 
-go 1.14
+go 1.17
